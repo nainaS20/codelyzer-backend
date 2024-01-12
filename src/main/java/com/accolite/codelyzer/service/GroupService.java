@@ -1,10 +1,12 @@
 package com.accolite.codelyzer.service;
 
 import com.accolite.codelyzer.model.Group;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface GroupService {
+
     List<Group> getAllGroups();
     void createGroup(Group group);
     void findGroup(String groupName);
