@@ -20,7 +20,7 @@ public class User {
     @JoinTable(
             name = "user_groups",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id"))
+            inverseJoinColumns = @JoinColumn(name = "groupId"))
     private Set<Group> groups = new HashSet<>();
 
     @Override

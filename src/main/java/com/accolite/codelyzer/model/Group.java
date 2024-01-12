@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Data
@@ -16,10 +14,12 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long groupId;
     private String groupName;
-    @ManyToMany(mappedBy = "groups")
+    @ManyToMany(mappedBy = "groups", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<User> users = new HashSet<>();
 
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
+    private List<Question> questions = new ArrayList<>();
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

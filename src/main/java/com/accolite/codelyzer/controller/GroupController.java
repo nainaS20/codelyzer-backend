@@ -35,4 +35,9 @@ public class GroupController {
     public String removeUser() {
         return "user removed";
     }
+    @PostMapping("/groups/findGroup/{groupName}")
+    public String findGroup(@PathVariable String groupName) {
+        groupService.findGroup(groupName);
+        return "group created";
+    }
 }

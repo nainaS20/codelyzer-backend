@@ -27,6 +27,11 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
+    public void findGroup(String groupName) {
+        System.out.println(groupRepo.findByGroupName(groupName));
+    }
+
+    @Override
     public void addUser(String groupName, String userEmail) {
         Group group = groupRepo.findByGroupName(groupName);
         User user = userRepo.findByEmail(userEmail);
